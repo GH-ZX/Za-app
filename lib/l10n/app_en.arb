@@ -76,5 +76,7 @@
   "pleaseEnterName": "Please enter your name",
   "haveAccount": "Already have an account? Login",
   "emailInUse": "The email address is already in use by another account.",
-  "signupErrorTitle": "Signup Failed"
+  "signupErrorTitle": "Signup Failed",
+  "or": "OR",
+  "signInWithGoogle": "Sign in with Google"
 }

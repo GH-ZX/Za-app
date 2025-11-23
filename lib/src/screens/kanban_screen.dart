@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:drag_and_drop_lists/drag_and_drop_lists.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:myapp/generated/l10n/app_localizations.dart';
-import 'package:myapp/src/screens/task_details_screen.dart';
-import 'package:myapp/src/utils/constants.dart';
+import 'package:TaskVerse/generated/l10n/app_localizations.dart';
+import 'package:TaskVerse/src/screens/task_details_screen.dart';
+import 'package:TaskVerse/src/utils/constants.dart';
 
 // Data model for a user
 class AppUser {

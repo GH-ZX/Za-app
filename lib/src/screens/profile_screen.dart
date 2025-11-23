@@ -2,10 +2,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:myapp/generated/l10n/app_localizations.dart';
+import 'package:TaskVerse/generated/l10n/app_localizations.dart';
 
-import 'package:myapp/src/providers/theme_provider.dart';
-import 'package:myapp/src/providers/locale_provider.dart';
+import 'package:TaskVerse/src/providers/theme_provider.dart';
+import 'package:TaskVerse/src/providers/locale_provider.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});

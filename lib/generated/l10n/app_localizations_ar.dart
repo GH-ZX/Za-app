@@ -244,4 +244,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get signupErrorTitle => 'فشل إنشاء الحساب';
+
+  @override
+  String get or => 'أو';
+
+  @override
+  String get signInWithGoogle => 'تسجيل الدخول باستخدام جوجل';
 }

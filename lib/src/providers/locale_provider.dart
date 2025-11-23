@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/generated/l10n/app_localizations.dart';
+import 'package:TaskVerse/generated/l10n/app_localizations.dart';
 
 class LocaleProvider with ChangeNotifier {
   Locale _locale = const Locale('ar'); // Default to Arabic

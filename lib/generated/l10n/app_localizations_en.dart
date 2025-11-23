@@ -247,4 +247,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get signupErrorTitle => 'Signup Failed';
+
+  @override
+  String get or => 'OR';
+
+  @override
+  String get signInWithGoogle => 'Sign in with Google';
 }

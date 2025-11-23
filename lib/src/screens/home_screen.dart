@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:myapp/generated/l10n/app_localizations.dart';
+import 'package:TaskVerse/generated/l10n/app_localizations.dart';
 
-import 'package:myapp/src/screens/kanban_screen.dart';
-import 'package:myapp/src/screens/profile_screen.dart';
+import 'package:TaskVerse/src/screens/kanban_screen.dart';
+import 'package:TaskVerse/src/screens/profile_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

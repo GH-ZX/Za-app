@@ -3,14 +3,14 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:myapp/generated/l10n/app_localizations.dart';
+import 'package:TaskVerse/generated/l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'firebase_options.dart';
-import 'package:myapp/src/providers/locale_provider.dart';
-import 'package:myapp/src/providers/theme_provider.dart';
-import 'package:myapp/src/screens/login_screen.dart';
-import 'package:myapp/src/screens/home_screen.dart';
+import 'package:TaskVerse/src/providers/locale_provider.dart';
+import 'package:TaskVerse/src/providers/theme_provider.dart';
+import 'package:TaskVerse/src/screens/login_screen.dart';
+import 'package:TaskVerse/src/screens/home_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
