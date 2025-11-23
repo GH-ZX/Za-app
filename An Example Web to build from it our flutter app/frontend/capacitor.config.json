@@ -1,0 +1,6 @@
+{
+  "appId": "com.gh.zaproject",
+  "appName": "za-project",
+  "webDir": "build",
+  "bundledWebRuntime": false
+}
