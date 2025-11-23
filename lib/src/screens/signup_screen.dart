@@ -1,7 +1,7 @@
-
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:myapp/generated/l10n/app_localizations.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
@@ -14,7 +14,7 @@ class _SignupScreenState extends State<SignupScreen> {
   final _formKey = GlobalKey<FormState>();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
-  final _nameController = TextEditingController(); // For user's name
+  final _nameController = TextEditingController();
   bool _isLoading = false;
 
   Future<void> _signup() async {
@@ -25,27 +25,51 @@ class _SignupScreenState extends State<SignupScreen> {
     });
 
     try {
+      // Check if any users exist to determine the role
+      final usersSnapshot = await FirebaseFirestore.instance.collection('users').limit(1).get();
+      final bool isFirstUser = usersSnapshot.docs.isEmpty;
+      final String role = isFirstUser ? 'admin' : 'user';
+
       UserCredential userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: _emailController.text.trim(),
         password: _passwordController.text.trim(),
       );
 
+      await userCredential.user?.updateDisplayName(_nameController.text.trim());
+
       // Store additional user data in Firestore
       await FirebaseFirestore.instance.collection('users').doc(userCredential.user!.uid).set({
-        'name': _nameController.text.trim(),
+        'displayName': _nameController.text.trim(), // Corrected field name
         'email': _emailController.text.trim(),
-        'role': 'user', // Default role
+        'role': role, // Set the determined role
         'createdAt': Timestamp.now(),
+        'photoURL': '' // Initialize with an empty photo URL
       });
 
-      // After successful signup, the AuthGate will handle navigation
       if (mounted) {
-        Navigator.of(context).pop();
+        // No need to navigate, AuthGate will handle it.
       }
 
     } on FirebaseAuthException catch (e) {
+      if (!mounted) return;
+      final l10n = AppLocalizations.of(context)!;
+      String errorMessage;
+      switch (e.code) {
+        case 'weak-password':
+          errorMessage = l10n.error_invalid_password;
+          break;
+        case 'email-already-in-use':
+          errorMessage = l10n.emailInUse;
+          break;
+        case 'invalid-email':
+          errorMessage = l10n.pleaseEnterValidEmail;
+          break;
+        default:
+          errorMessage = l10n.signupErrorTitle;
+          break;
+      }
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(e.message ?? 'فشل إنشاء الحساب')),
+        SnackBar(content: Text(errorMessage)),
       );
     } finally {
       if (mounted) {
@@ -58,9 +82,11 @@ class _SignupScreenState extends State<SignupScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
     return Scaffold(
-       appBar: AppBar(
-        title: const Text('إنشاء حساب جديد'),
+      appBar: AppBar(
+        title: Text(l10n.register),
         elevation: 0,
         backgroundColor: Colors.transparent,
       ),
@@ -74,59 +100,69 @@ class _SignupScreenState extends State<SignupScreen> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Text(
-                  'انضم إلينا',
+                  l10n.createAccount,
                   textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.displayLarge?.copyWith(
+                  style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                         color: Theme.of(context).colorScheme.primary,
                       ),
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  'أنشئ حسابك للبدء في إدارة مهامك',
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.titleMedium,
                 ),
                 const SizedBox(height: 40),
                 TextFormField(
                   controller: _nameController,
-                  decoration: const InputDecoration(
-                    labelText: 'الاسم الكامل',
-                    prefixIcon: Icon(Icons.person_outline),
-                    border: OutlineInputBorder(),
+                  decoration: InputDecoration(
+                    labelText: l10n.name,
+                    prefixIcon: const Icon(Icons.person_outline),
+                    border: const OutlineInputBorder(),
                   ),
-                  validator: (value) => value!.isEmpty ? 'الرجاء إدخال الاسم' : null,
+                  validator: (value) => value!.isEmpty ? l10n.pleaseEnterName : null,
                 ),
-                 const SizedBox(height: 16),
+                const SizedBox(height: 16),
                 TextFormField(
                   controller: _emailController,
-                  decoration: const InputDecoration(
-                    labelText: 'البريد الإلكتروني',
-                    prefixIcon: Icon(Icons.email_outlined),
-                    border: OutlineInputBorder(),
+                  keyboardType: TextInputType.emailAddress,
+                  decoration: InputDecoration(
+                    labelText: l10n.email,
+                    prefixIcon: const Icon(Icons.email_outlined),
+                    border: const OutlineInputBorder(),
                   ),
-                  validator: (value) => value!.isEmpty ? 'الرجاء إدخال البريد الإلكتروني' : null,
+                   validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return l10n.pleaseEnterEmail;
+                    }
+                    if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$').hasMatch(value)) {
+                      return l10n.pleaseEnterValidEmail;
+                    }
+                    return null;
+                  },
                 ),
                 const SizedBox(height: 16),
                 TextFormField(
                   controller: _passwordController,
                   obscureText: true,
-                  decoration: const InputDecoration(
-                    labelText: 'كلمة المرور',
-                    prefixIcon: Icon(Icons.lock_outline),
-                    border: OutlineInputBorder(),
+                  decoration: InputDecoration(
+                    labelText: l10n.password,
+                    prefixIcon: const Icon(Icons.lock_outline),
+                    border: const OutlineInputBorder(),
                   ),
-                  validator: (value) => value!.length < 6 ? 'كلمة المرور يجب أن تكون 6 أحرف على الأقل' : null,
+                  validator: (value) => (value?.length ?? 0) < 6 ? l10n.error_invalid_password : null,
                 ),
                 const SizedBox(height: 24),
                 _isLoading
                     ? const Center(child: CircularProgressIndicator())
                     : ElevatedButton(
                         onPressed: _signup,
-                         style: ElevatedButton.styleFrom(
+                        style: ElevatedButton.styleFrom(
                           padding: const EdgeInsets.symmetric(vertical: 16),
                         ),
-                        child: const Text('إنشاء حساب'),
+                        child: Text(l10n.createAccount),
                       ),
+                const SizedBox(height: 16),
+                TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: Text(l10n.haveAccount),
+                ),
               ],
             ),
           ),

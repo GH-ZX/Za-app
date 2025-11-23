@@ -1,7 +1,8 @@
-
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:task_manager/src/screens/signup_screen.dart';
+import 'package:myapp/generated/l10n/app_localizations.dart';
+import 'package:myapp/src/screens/forgot_password_screen.dart';
+import 'package:myapp/src/screens/signup_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -30,8 +31,22 @@ class _LoginScreenState extends State<LoginScreen> {
       );
       // Navigation will be handled by the AuthGate StreamBuilder
     } on FirebaseAuthException catch (e) {
+      if (!mounted) return;
+      final l10n = AppLocalizations.of(context)!;
+      String errorMessage = l10n.loginFailed;
+      switch (e.code) {
+        case 'user-not-found':
+          errorMessage = l10n.error_user_not_found;
+          break;
+        case 'wrong-password':
+          errorMessage = l10n.error_wrong_password;
+          break;
+        case 'invalid-email':
+          errorMessage = l10n.pleaseEnterValidEmail;
+          break;
+      }
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(e.message ?? 'فشل تسجيل الدخول')),
+        SnackBar(content: Text(errorMessage)),
       );
     } finally {
       if (mounted) {
@@ -44,6 +59,8 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
     return Scaffold(
       body: Center(
         child: SingleChildScrollView(
@@ -55,40 +72,66 @@ class _LoginScreenState extends State<LoginScreen> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Text(
-                  'مرحباً بعودتك',
+                  l10n.welcomeBack,
                   textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.displayLarge?.copyWith(
+                  style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                         color: Theme.of(context).colorScheme.primary,
                       ),
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  'سجل الدخول للمتابعة إلى نظام إدارة المهام',
+                  l10n.loginSubheading,
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.titleMedium,
                 ),
                 const SizedBox(height: 40),
                 TextFormField(
                   controller: _emailController,
-                  decoration: const InputDecoration(
-                    labelText: 'البريد الإلكتروني',
-                    prefixIcon: Icon(Icons.email_outlined),
-                    border: OutlineInputBorder(),
+                   keyboardType: TextInputType.emailAddress,
+                  decoration: InputDecoration(
+                    labelText: l10n.email,
+                    prefixIcon: const Icon(Icons.email_outlined),
+                    border: const OutlineInputBorder(),
                   ),
-                  validator: (value) => value!.isEmpty ? 'الرجاء إدخال البريد الإلكتروني' : null,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return l10n.pleaseEnterEmail;
+                    }
+                     if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$').hasMatch(value)) {
+                      return l10n.pleaseEnterValidEmail;
+                    }
+                    return null;
+                  },
                 ),
                 const SizedBox(height: 16),
                 TextFormField(
                   controller: _passwordController,
                   obscureText: true,
-                  decoration: const InputDecoration(
-                    labelText: 'كلمة المرور',
-                    prefixIcon: Icon(Icons.lock_outline),
-                    border: OutlineInputBorder(),
+                  decoration: InputDecoration(
+                    labelText: l10n.password,
+                    prefixIcon: const Icon(Icons.lock_outline),
+                    border: const OutlineInputBorder(),
                   ),
-                  validator: (value) => value!.isEmpty ? 'الرجاء إدخال كلمة المرور' : null,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return l10n.pleaseEnterPassword;
+                    }
+                    return null;
+                  },
                 ),
-                const SizedBox(height: 24),
+                const SizedBox(height: 16),
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const ForgotPasswordScreen(),
+                      ));
+                    },
+                    child: Text(l10n.forgotPassword),
+                  ),
+                ),
+                const SizedBox(height: 16),
                 _isLoading
                     ? const Center(child: CircularProgressIndicator())
                     : ElevatedButton(
@@ -96,7 +139,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         style: ElevatedButton.styleFrom(
                           padding: const EdgeInsets.symmetric(vertical: 16),
                         ),
-                        child: const Text('تسجيل الدخول'),
+                        child: Text(l10n.login),
                       ),
                 const SizedBox(height: 16),
                 TextButton(
@@ -105,7 +148,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       MaterialPageRoute(builder: (context) => const SignupScreen()),
                     );
                   },
-                  child: const Text('ليس لديك حساب؟ إنشاء حساب جديد'),
+                  child: Text(l10n.dontHaveAccountRegister),
                 ),
               ],
             ),
@@ -115,4 +158,3 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 }
-

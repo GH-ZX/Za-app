@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "293518909640",
+    "project_id": "za-project-b1bc6",
+    "storage_bucket": "za-project-b1bc6.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:293518909640:android:23e2748666e828a15645fd",
+        "android_client_info": {
+          "package_name": "com.example.myapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "293518909640-mfbktt5c5nsndiu5hi675jbhcqg64plr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB03AjhiqGU9gQW0qLlfpNEpdfQTIfv0yQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "293518909640-mfbktt5c5nsndiu5hi675jbhcqg64plr.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "293518909640-8abj2ejquli5alro5g5hq0q2eksnief2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.def.zaapp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

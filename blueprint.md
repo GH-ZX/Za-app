@@ -1,57 +1,68 @@
-### **مخطط التطبيق: نظام إدارة المهام للوزارة**
 
-**الهدف:** إنشاء تطبيق موبايل آمن وموثوق وسهل الاستخدام لأنظمة Android و iOS، لإدارة مشاريع ومهام الوزارة بكفاءة، باستخدام إطار العمل Flutter وقاعدة بيانات Firebase.
+# Task Manager Application Blueprint
 
-#### **المرحلة الأولى: الأساسيات وإعداد المشروع**
-1.  **تنظيف المشروع:** سأقوم أولاً بحذف مجلد `An Example Web to build from it our flutter app` وملفاته للبدء من نقطة الصفر وضمان عدم وجود أي تعارضات.
-2.  **إعداد Firebase:**
-    *   سنقوم بإنشاء مشروع جديد على منصة Firebase.
-    *   سأقوم بضبط إعدادات تطبيق Flutter لربطه بمشروع Firebase الخاص بك لأنظمة Android و iOS.
-3.  **نظام المصادقة (Authentication):**
-    *   بناء نظام تسجيل دخول وتسجيل مستخدم جديد آمن باستخدام خدمة **Firebase Authentication** (عبر البريد الإلكتر الإلكتروني وكلمة المرور).
-    *   تصميم شاشات تسجيل الدخول، إنشاء حساب، واستعادة كلمة المرور.
-    *   تخزين بيانات المستخدمين الإضافية (مثل الاسم، المنصب، الصلاحيات) في قاعدة بيانات **Cloud Firestore**.
+## Overview
 
-#### **المرحلة الثانية: إدارة المشاريع والمهام (الوظائف الأساسية)**
-1.  **إنشاء المشاريع:**
-    *   تمكين المستخدمين من إنشاء مشاريع جديدة (مثل: "تطوير الموقع الإلكتروني"، "التقرير السنوي").
-    *   تخزين بيانات المشاريع في مجموعة (collection) باسم `projects` في Firestore.
-2.  **إدارة المهام (CRUD):**
-    *   داخل كل مشروع، سيتمكن المستخدم من إضافة، عرض، تعديل، وحذف المهام.
-    *   كل مهمة ستحتوي على تفاصيل مثل: العنوان، الوصف، الحالة (مثل: جديدة، قيد التنفيذ، منجزة)، الأولوية (مثل: منخفضة، متوسطة، عالية)، والمستخدم المسؤول عنها.
-3.  **هيكلة البيانات:** سنستخدم المجموعات الفرعية (subcollections) في Firestore لتنظيم المهام داخل المشاريع التابعة لها، وهي طريقة فعّالة وقابلة للتوسع.
+This document outlines the architecture, features, and implementation details of the Task Manager Flutter application. The app is designed to be a comprehensive tool for project and task management, featuring user authentication, role-based access control, a multi-language interface, and a dynamic theme system.
 
-#### **المرحلة الثالثة: واجهة المستخدم التفاعلية - لوحة Kanban وعرض القائمة**
-1.  **لوحة Kanban:**
-    *   تصميم لوحة Kanban مرئية لإدارة حالات المهام، مع دعم خاصية السحب والإفلات (Drag and Drop). ستكون هذه هي الواجهة الرئيسية لتتبع تقدم العمل.
-    *   سيتمكن المستخدم من سحب مهمة من عمود (مثل "قيد التنفيذ") إلى عمود آخر (مثل "للمراجعة").
-2.  **عرض المهام كقائمة:**
-    *   توفير عرض تقليدي للمهام على شكل قائمة كبديل للوحة Kanban، مما يتيح فرزاً سريعاً ورؤية شاملة.
-3.  **الفلترة والبحث المتقدم:**
-    *   توفير خيارات لفلترة المهام في كلا العرضين (Kanban والقائمة) بناءً على الحالة، الأولوية، أو المستخدم المسؤول.
-    *   إضافة شريط بحث للعثور على المهام بسرعة.
+## Core Features
 
-#### **المرحلة الرابعة: لوحة تحكم المسؤولين والتحليلات**
-1.  **صلاحيات المسؤول (Admin):**
-    *   تحديد دور "مسؤول" في النظام له صلاحيات خاصة.
-2.  **لوحة تحكم المسؤولين:**
-    *   إنشاء قسم خاص في التطبيق للمسؤولين فقط.
-    *   عرض إحصائيات رئيسية: عدد المشاريع النشطة، معدلات إنجاز المهام، نشاط المستخدمين.
-    *   عرض رسوم بيانية لتسهيل فهم البيانات.
-3.  **إدارة المستخدمين:**
-    *   تمكين المسؤولين من عرض جميع المستخدمين في النظام وإدارة أدوارهم وصلاحياتهم.
+*   **User Authentication:** Secure login, registration, and password reset functionality using Firebase Authentication.
+*   **Project Management:** Users can create, view, and manage projects.
+*   **Task Management:** Within each project, users can manage tasks in a Kanban-style board with "To Do", "In Progress", and "Done" columns.
+*   **Role-Based Access Control (RBAC):** The first user to register becomes an "admin", with subsequent users assigned the "user" role. (Further development is needed to define specific permissions).
+*   **Internationalization (i18n):** Full support for English and Arabic languages using the `intl` package.
+*   **Dynamic Theming:** Light, dark, and system theme options, managed with the `provider` package.
+*   **Profile Management:** Users can update their display name.
+*   **Task Details & Comments:** Users can view task details and add comments.
 
-#### **المرحلة الخامسة: التصميم واللمسات النهائية**
-1.  **واجهة مستخدم احترافية:**
-    *   تصميم واجهة مستخدم نظيفة، عصرية، وبديهية باستخدام مبادئ Material Design 3.
-    *   سيكون للتطبيق مظهر احترافي يليق ببيئة العمل الوزارية.
-2.  **دعم كامل للغة العربية:**
-    *   التأكد من أن الواجهة بأكملها تدعم اللغة العربية بشكل كامل مع تصميم من اليمين إلى اليسار (RTL).
-3.  **الوضع الليلي والنهاري:**
-    *   توفير وضعين للتصميم (Light & Dark Mode) لراحة عين المستخدم.
+## Project Structure
 
-#### **التقنيات المستخدمة:**
-*   **إطار عمل الموبايل:** Flutter
-*   **الخدمات السحابية:** Firebase (Authentication, Cloud Firestore, Cloud Storage)
-*   **إدارة الحالة:** Provider (لإدارة بيانات التطبيق بفعالية)
-*   **التصميم:** Material Design 3
+```
+lib
+├── l10n/                 # Localization files (ARB)
+├── generated/            # Auto-generated localization files
+├── src/
+│   ├── models/             # Data models (e.g., Project, Task)
+│   ├── providers/          # State management (e.g., ThemeProvider)
+│   ├── screens/            # UI screens (login, home, profile, etc.)
+│   ├── widgets/            # Reusable UI components
+│   └── services/           # Business logic (e.g., AuthService)
+├── main.dart             # App entry point
+└── auth_gate.dart        # Handles auth state changes
+```
+
+## Style & Design
+
+*   **UI Framework:** Flutter with Material Design 3.
+*   **Layout:** Clean, responsive, and intuitive layouts with a focus on usability.
+*   **Icons:** Material Design icons are used throughout the app to enhance clarity.
+*   **State Management:** `provider` is used for managing global state like the theme, while `StatefulWidget` and `ValueNotifier` are used for local state.
+
+## Current Implementation Plan
+
+**Task: Fix Localization Issues in Authentication Screens**
+
+*   **Objective:** Resolve all hardcoded strings and incorrect localization key usage in the `login`, `signup`, and `forgot_password` screens.
+*   **Status:** Completed.
+
+**Steps Taken:**
+
+1.  **Reviewed `forgot_password_screen.dart`:**
+    *   Identified and corrected an incorrect translation key (`sendResetLink` -> `sendResetEmail`).
+
+2.  **Reviewed `login_screen.dart`:**
+    *   Identified several missing translation keys (`pleaseEnterEmail`).
+    *   Added the missing keys to `app_en.arb` and `app_ar.arb`.
+    *   Updated the screen to use the correct keys for validation and error messages (`error_user_not_found`, `error_wrong_password`, etc.).
+
+3.  **Reviewed `signup_screen.dart`:**
+    *   Identified numerous missing translation keys (`createAccount`, `name`, `pleaseEnterName`, `emailInUse`, etc.).
+    *   Added all missing keys to both `app_en.arb` and `app_ar.arb`.
+    *   Corrected a data inconsistency by changing the Firestore field for the user's name from `name` to `displayName` to match the profile screen.
+    *   Updated the screen to use the correct localization keys for UI text, validation, and error handling.
+
+4.  **Regenerated Localization Files:**
+    *   Ran `flutter gen-l10n` after each modification to the `.arb` files to ensure the `AppLocalizations` class was correctly updated.
+
+**Outcome:** All user-facing text in the authentication flow is now correctly translated and managed through the localization system. Error messages are user-friendly and translated. The user's display name is now correctly saved and displayed after registration.
