@@ -84,18 +84,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get taskDescription => 'وصف المهمة';
 
   @override
-  String get start => 'بدء';
-
-  @override
-  String get pause => 'إيقاف مؤقت';
-
-  @override
-  String get complete => 'إكمال';
-
-  @override
-  String get reopen => 'إعادة فتح';
-
-  @override
   String get add => 'إضافة';
 
   @override
@@ -114,72 +102,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get noTasks => 'لا توجد مهام بعد.';
 
   @override
-  String get changeEmail => 'تغيير البريد الإلكتروني';
-
-  @override
-  String get changePassword => 'تغيير كلمة المرور';
-
-  @override
-  String get changePasswordDescription =>
-      'إرسال رابط إعادة تعيين كلمة المرور إلى بريدك الإلكتروني';
-
-  @override
-  String get deleteAccount => 'حذف الحساب';
-
-  @override
-  String get deleteAccountWarning =>
-      'حذف الحساب سيزيل جميع بياناتك ولا يمكن التراجع عنه.';
-
-  @override
-  String get notifications => 'الإشعارات';
-
-  @override
-  String get analytics => 'التحليلات';
-
-  @override
-  String get compactMode => 'وضع مضغوط';
-
-  @override
-  String get exportData => 'تصدير بياناتي';
-
-  @override
-  String get exportDataDescription =>
-      'اطلب نسخة من بياناتك المخزنة (سوف نجهزها ونخبرك عند الانتهاء).';
-
-  @override
-  String get exportRequested =>
-      'تم طلب تصدير البيانات — سنجهزها ونوافيك بالتحديث.';
-
-  @override
-  String get helpAndFeedback => 'المساعدة والتغذية الراجعة';
-
-  @override
-  String get contactSupport => 'اتصل بالدعم: support@example.com';
-
-  @override
-  String get about => 'حول التطبيق';
-
-  @override
-  String get aboutDescription =>
-      'TaskVerse يساعد الفرق والأفراد في إدارة المشاريع والمهام بكفاءة.';
-
-  @override
-  String get versionLabel => 'الإصدار';
-
-  @override
   String get editProfile => 'تعديل الملف الشخصي';
-
-  @override
-  String get viewProfile => 'عرض الملف الشخصي';
-
-  @override
-  String get preferences => 'التفضيلات';
-
-  @override
-  String get appAndPrivacy => 'التطبيق والخصوصية';
-
-  @override
-  String get displayOptions => 'خيارات العرض';
 
   @override
   String get displayName => 'الاسم المعروض';
@@ -196,8 +119,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get pleaseEnterValidEmail => 'الرجاء إدخال بريد إلكتروني صحيح';
 
   @override
-  String get error_invalid_password =>
-      'يجب أن تكون كلمة المرور 6 أحرف على الأقل';
+  String get error_invalid_password => 'يجب أن تكون كلمة المرور 6 أحرف على الأقل';
 
   @override
   String get error_user_not_found => 'لا يوجد مستخدم بهذا البريد الإلكتروني.';
@@ -239,15 +161,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get forgotPassword => 'هل نسيت كلمة المرور؟';
 
   @override
-  String get forgotPasswordInstruction =>
-      'أدخل بريدك الإلكتروني وسنرسل لك رابطًا لإعادة تعيين كلمة المرور الخاصة بك.';
+  String get forgotPasswordInstruction => 'أدخل بريدك الإلكتروني وسنرسل لك رابطًا لإعادة تعيين كلمة المرور الخاصة بك.';
 
   @override
   String get sendResetEmail => 'إرسال بريد إعادة التعيين';
 
   @override
-  String get passwordResetEmailSent =>
-      'تم إرسال بريد إعادة تعيين كلمة المرور. يرجى التحقق من صندوق الوارد الخاص بك.';
+  String get passwordResetEmailSent => 'تم إرسال بريد إعادة تعيين كلمة المرور. يرجى التحقق من صندوق الوارد الخاص بك.';
 
   @override
   String get welcomeBack => 'مرحباً بعودتك';
@@ -316,8 +236,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get haveAccount => 'هل لديك حساب بالفعل؟ تسجيل الدخول';
 
   @override
-  String get emailInUse =>
-      'عنوان البريد الإلكتروني مستخدم بالفعل من قبل حساب آخر.';
+  String get emailInUse => 'عنوان البريد الإلكتروني مستخدم بالفعل من قبل حساب آخر.';
 
   @override
   String get signupErrorTitle => 'فشل إنشاء الحساب';

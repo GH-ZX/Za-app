@@ -62,8 +62,7 @@ import 'app_localizations_en.dart';
 /// be consistent with the languages listed in the AppLocalizations.supportedLocales
 /// property.
 abstract class AppLocalizations {
-  AppLocalizations(String locale)
-    : localeName = intl.Intl.canonicalizedLocale(locale.toString());
+  AppLocalizations(String locale) : localeName = intl.Intl.canonicalizedLocale(locale.toString());
 
   final String localeName;
 
@@ -71,8 +70,7 @@ abstract class AppLocalizations {
     return Localizations.of<AppLocalizations>(context, AppLocalizations);
   }
 
-  static const LocalizationsDelegate<AppLocalizations> delegate =
-      _AppLocalizationsDelegate();
+  static const LocalizationsDelegate<AppLocalizations> delegate = _AppLocalizationsDelegate();
 
   /// A list of this localizations delegate along with the default localizations
   /// delegates.
@@ -84,18 +82,17 @@ abstract class AppLocalizations {
   /// Additional delegates can be added by appending to this list in
   /// MaterialApp. This list does not have to be used at all if a custom list
   /// of delegates is preferred or required.
-  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates =
-      <LocalizationsDelegate<dynamic>>[
-        delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-      ];
+  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates = <LocalizationsDelegate<dynamic>>[
+    delegate,
+    GlobalMaterialLocalizations.delegate,
+    GlobalCupertinoLocalizations.delegate,
+    GlobalWidgetsLocalizations.delegate,
+  ];
 
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[
     Locale('ar'),
-    Locale('en'),
+    Locale('en')
   ];
 
   /// No description provided for @appTitle.
@@ -248,30 +245,6 @@ abstract class AppLocalizations {
   /// **'Task Description'**
   String get taskDescription;
 
-  /// No description provided for @start.
-  ///
-  /// In en, this message translates to:
-  /// **'Start'**
-  String get start;
-
-  /// No description provided for @pause.
-  ///
-  /// In en, this message translates to:
-  /// **'Pause'**
-  String get pause;
-
-  /// No description provided for @complete.
-  ///
-  /// In en, this message translates to:
-  /// **'Complete'**
-  String get complete;
-
-  /// No description provided for @reopen.
-  ///
-  /// In en, this message translates to:
-  /// **'Reopen'**
-  String get reopen;
-
   /// No description provided for @add.
   ///
   /// In en, this message translates to:
@@ -308,131 +281,11 @@ abstract class AppLocalizations {
   /// **'No tasks yet.'**
   String get noTasks;
 
-  /// No description provided for @changeEmail.
-  ///
-  /// In en, this message translates to:
-  /// **'Change email'**
-  String get changeEmail;
-
-  /// No description provided for @changePassword.
-  ///
-  /// In en, this message translates to:
-  /// **'Change password'**
-  String get changePassword;
-
-  /// No description provided for @changePasswordDescription.
-  ///
-  /// In en, this message translates to:
-  /// **'Send a password reset email to your account'**
-  String get changePasswordDescription;
-
-  /// No description provided for @deleteAccount.
-  ///
-  /// In en, this message translates to:
-  /// **'Delete account'**
-  String get deleteAccount;
-
-  /// No description provided for @deleteAccountWarning.
-  ///
-  /// In en, this message translates to:
-  /// **'Deleting your account will remove all your data and cannot be undone.'**
-  String get deleteAccountWarning;
-
-  /// No description provided for @notifications.
-  ///
-  /// In en, this message translates to:
-  /// **'Notifications'**
-  String get notifications;
-
-  /// No description provided for @analytics.
-  ///
-  /// In en, this message translates to:
-  /// **'Analytics'**
-  String get analytics;
-
-  /// No description provided for @compactMode.
-  ///
-  /// In en, this message translates to:
-  /// **'Compact mode'**
-  String get compactMode;
-
-  /// No description provided for @exportData.
-  ///
-  /// In en, this message translates to:
-  /// **'Export my data'**
-  String get exportData;
-
-  /// No description provided for @exportDataDescription.
-  ///
-  /// In en, this message translates to:
-  /// **'Request a copy of your stored data (we will prepare it and notify you).'**
-  String get exportDataDescription;
-
-  /// No description provided for @exportRequested.
-  ///
-  /// In en, this message translates to:
-  /// **'Data export requested — we will prepare it and notify you.'**
-  String get exportRequested;
-
-  /// No description provided for @helpAndFeedback.
-  ///
-  /// In en, this message translates to:
-  /// **'Help & Feedback'**
-  String get helpAndFeedback;
-
-  /// No description provided for @contactSupport.
-  ///
-  /// In en, this message translates to:
-  /// **'Contact support: support@example.com'**
-  String get contactSupport;
-
-  /// No description provided for @about.
-  ///
-  /// In en, this message translates to:
-  /// **'About'**
-  String get about;
-
-  /// No description provided for @aboutDescription.
-  ///
-  /// In en, this message translates to:
-  /// **'TaskVerse helps teams and individuals manage projects and tasks efficiently.'**
-  String get aboutDescription;
-
-  /// No description provided for @versionLabel.
-  ///
-  /// In en, this message translates to:
-  /// **'Version'**
-  String get versionLabel;
-
   /// No description provided for @editProfile.
   ///
   /// In en, this message translates to:
   /// **'Edit Profile'**
   String get editProfile;
-
-  /// No description provided for @viewProfile.
-  ///
-  /// In en, this message translates to:
-  /// **'View profile'**
-  String get viewProfile;
-
-  /// No description provided for @preferences.
-  ///
-  /// In en, this message translates to:
-  /// **'Preferences'**
-  String get preferences;
-
-  /// No description provided for @appAndPrivacy.
-  ///
-  /// In en, this message translates to:
-  /// **'App & Privacy'**
-  String get appAndPrivacy;
-
-  /// No description provided for @displayOptions.
-  ///
-  /// In en, this message translates to:
-  /// **'Display options'**
-  String get displayOptions;
 
   /// No description provided for @displayName.
   ///
@@ -723,8 +576,7 @@ abstract class AppLocalizations {
   String get loginRequired;
 }
 
-class _AppLocalizationsDelegate
-    extends LocalizationsDelegate<AppLocalizations> {
+class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
   const _AppLocalizationsDelegate();
 
   @override
@@ -733,26 +585,25 @@ class _AppLocalizationsDelegate
   }
 
   @override
-  bool isSupported(Locale locale) =>
-      <String>['ar', 'en'].contains(locale.languageCode);
+  bool isSupported(Locale locale) => <String>['ar', 'en'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_AppLocalizationsDelegate old) => false;
 }
 
 AppLocalizations lookupAppLocalizations(Locale locale) {
+
+
   // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
-    case 'ar':
-      return AppLocalizationsAr();
-    case 'en':
-      return AppLocalizationsEn();
+    case 'ar': return AppLocalizationsAr();
+    case 'en': return AppLocalizationsEn();
   }
 
   throw FlutterError(
     'AppLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
     'an issue with the localizations generation tool. Please file an issue '
     'on GitHub with a reproducible sample app and the gen-l10n configuration '
-    'that was used.',
+    'that was used.'
   );
 }

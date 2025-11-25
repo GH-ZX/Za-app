@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:TaskVerse/generated/l10n/app_localizations.dart';
+import 'package:TaskVerse/src/screens/home_screen.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
@@ -47,7 +48,10 @@ class _SignupScreenState extends State<SignupScreen> {
       });
 
       if (mounted) {
-        // No need to navigate, AuthGate will handle it.
+        // Navigate directly to Home so the UI updates immediately after signup
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (context) => const HomeScreen()),
+        );
       }
 
     } on FirebaseAuthException catch (e) {

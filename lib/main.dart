@@ -70,7 +70,7 @@ class MyApp extends StatelessWidget {
         );
 
         return MaterialApp(
-          title: 'Task Manager',
+          title: 'TaskVerse',
           theme: lightTheme,
           darkTheme: darkTheme,
           themeMode: themeProvider.themeMode,

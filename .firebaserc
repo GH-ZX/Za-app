@@ -1,5 +1,7 @@
 {
-  "projects": {},
+  "projects": {
+    "default": "za-project-b1bc6"
+  },
   "targets": {},
   "etags": {}
 }

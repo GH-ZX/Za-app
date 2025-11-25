@@ -173,10 +173,26 @@ class _KanbanScreenState extends State<KanbanScreen> {
                     child: Text(task.description, maxLines: 2, overflow: TextOverflow.ellipsis, style: Theme.of(context).textTheme.bodyMedium),
                   ),
                 const SizedBox(height: 12),
-                if (task.assignedTo != null)
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    if (task.assignedTo != null)
                   AssignedUserChip(userId: task.assignedTo!)
-                else
-                  Chip(label: Text(AppLocalizations.of(context)!.unassigned), avatar: Icon(Icons.person_outline)),
+                    else
+                      Chip(label: Text(AppLocalizations.of(context)!.unassigned), avatar: Icon(Icons.person_outline)),
+
+                    // Status indicator
+                    Chip(
+                      avatar: Icon(
+                        TaskStatus.label(task.status).toLowerCase().contains('done') ? Icons.check_circle : (TaskStatus.label(task.status).toLowerCase().contains('progress') ? Icons.hourglass_top : Icons.list),
+                        color: Colors.white,
+                        size: 16,
+                      ),
+                      label: Text(TaskStatus.label(task.status), style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                      backgroundColor: TaskStatus.color(task.status),
+                    ),
+                  ],
+                ),
 
               ],
             ),
@@ -291,7 +307,11 @@ class _KanbanScreenState extends State<KanbanScreen> {
                   'createdBy': FirebaseAuth.instance.currentUser?.uid,
                   'assignedTo': selectedUserId,
                 });
-                if (mounted) Navigator.of(context).pop();
+                if (mounted) {
+                  Navigator.of(context).pop();
+                  // Ensure parent state refreshes so the new task appears immediately
+                  setState(() {});
+                }
               }
             },
             child: Text(l10n.add),

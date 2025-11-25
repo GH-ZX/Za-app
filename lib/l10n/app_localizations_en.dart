@@ -84,18 +84,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get taskDescription => 'Task Description';
 
   @override
-  String get start => 'Start';
-
-  @override
-  String get pause => 'Pause';
-
-  @override
-  String get complete => 'Complete';
-
-  @override
-  String get reopen => 'Reopen';
-
-  @override
   String get add => 'Add';
 
   @override
@@ -114,72 +102,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get noTasks => 'No tasks yet.';
 
   @override
-  String get changeEmail => 'Change email';
-
-  @override
-  String get changePassword => 'Change password';
-
-  @override
-  String get changePasswordDescription =>
-      'Send a password reset email to your account';
-
-  @override
-  String get deleteAccount => 'Delete account';
-
-  @override
-  String get deleteAccountWarning =>
-      'Deleting your account will remove all your data and cannot be undone.';
-
-  @override
-  String get notifications => 'Notifications';
-
-  @override
-  String get analytics => 'Analytics';
-
-  @override
-  String get compactMode => 'Compact mode';
-
-  @override
-  String get exportData => 'Export my data';
-
-  @override
-  String get exportDataDescription =>
-      'Request a copy of your stored data (we will prepare it and notify you).';
-
-  @override
-  String get exportRequested =>
-      'Data export requested — we will prepare it and notify you.';
-
-  @override
-  String get helpAndFeedback => 'Help & Feedback';
-
-  @override
-  String get contactSupport => 'Contact support: support@example.com';
-
-  @override
-  String get about => 'About';
-
-  @override
-  String get aboutDescription =>
-      'TaskVerse helps teams and individuals manage projects and tasks efficiently.';
-
-  @override
-  String get versionLabel => 'Version';
-
-  @override
   String get editProfile => 'Edit Profile';
-
-  @override
-  String get viewProfile => 'View profile';
-
-  @override
-  String get preferences => 'Preferences';
-
-  @override
-  String get appAndPrivacy => 'App & Privacy';
-
-  @override
-  String get displayOptions => 'Display options';
 
   @override
   String get displayName => 'Display Name';
@@ -226,8 +149,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get deleteConfirmation => 'Delete Confirmation';
 
   @override
-  String get areYouSureDeleteTask =>
-      'Are you sure you want to delete this task?';
+  String get areYouSureDeleteTask => 'Are you sure you want to delete this task?';
 
   @override
   String get saveChanges => 'Save Changes';
@@ -239,29 +161,25 @@ class AppLocalizationsEn extends AppLocalizations {
   String get forgotPassword => 'Forgot Password';
 
   @override
-  String get forgotPasswordInstruction =>
-      'Enter your email address and we will send you a link to reset your password.';
+  String get forgotPasswordInstruction => 'Enter your email address and we will send you a link to reset your password.';
 
   @override
   String get sendResetEmail => 'Send Reset Email';
 
   @override
-  String get passwordResetEmailSent =>
-      'Password reset email sent. Please check your inbox.';
+  String get passwordResetEmailSent => 'Password reset email sent. Please check your inbox.';
 
   @override
   String get welcomeBack => 'Welcome Back';
 
   @override
-  String get loginSubheading =>
-      'Login to continue to the Task Management System';
+  String get loginSubheading => 'Login to continue to the Task Management System';
 
   @override
   String get pleaseEnterPassword => 'Please enter your password';
 
   @override
-  String get dontHaveAccountRegister =>
-      'Don\'t have an account? Create a new one';
+  String get dontHaveAccountRegister => 'Don\'t have an account? Create a new one';
 
   @override
   String get loginFailed => 'Login Failed';
@@ -279,8 +197,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get pleaseEnterProjectTitle => 'Please enter a project title';
 
   @override
-  String get pleaseEnterProjectDescription =>
-      'Please enter a project description';
+  String get pleaseEnterProjectDescription => 'Please enter a project description';
 
   @override
   String get pleaseEnterTaskTitle => 'Please enter a task title';
@@ -319,8 +236,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get haveAccount => 'Already have an account? Login';
 
   @override
-  String get emailInUse =>
-      'The email address is already in use by another account.';
+  String get emailInUse => 'The email address is already in use by another account.';
 
   @override
   String get signupErrorTitle => 'Signup Failed';
