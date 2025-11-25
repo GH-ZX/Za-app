@@ -304,4 +304,64 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get reopen => 'Reopen';
+
+  @override
+  String get projectPlan => 'Project Plan';
+
+  @override
+  String get projectOwner => 'Project Owner';
+
+  @override
+  String get projectMembers => 'Project Members';
+
+  @override
+  String get startDate => 'Start Date';
+
+  @override
+  String get endDate => 'End Date';
+
+  @override
+  String get selectProjectOwner => 'Select a project owner';
+
+  @override
+  String get selectProjectMembers => 'Select project members';
+
+  @override
+  String get dueDate => 'Due Date';
+
+  @override
+  String get duration => 'Duration';
+
+  @override
+  String get pleaseSelectOwner => 'Please select a project owner';
+
+  @override
+  String get pleaseSelectDates => 'Please select start and end dates';
+
+  @override
+  String get noMembersSelected => 'No members selected';
+
+  @override
+  String membersSelected(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count members selected',
+      one: '1 member selected',
+      zero: 'No members selected',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get selectADate => 'Select a date';
+
+  @override
+  String get viewProfile => 'View Profile';
+
+  @override
+  String get appAndPrivacy => 'App & Privacy';
+
+  @override
+  String get displayOptions => 'Display options';
 }

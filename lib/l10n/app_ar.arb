@@ -95,5 +95,30 @@
   "start": "بدء",
   "pause": "إيقاف مؤقت",
   "complete": "إكمال",
-  "reopen": "إعادة فتح"
+  "reopen": "إعادة فتح",
+  "projectPlan": "خطة المشروع",
+  "projectOwner": "صاحب المشروع",
+  "projectMembers": "أعضاء المشروع",
+  "startDate": "تاريخ البدء",
+  "endDate": "تاريخ الانتهاء",
+  "selectProjectOwner": "اختر صاحب المشروع",
+  "selectProjectMembers": "اختر أعضاء المشروع",
+  "dueDate": "تاريخ الاستحقاق",
+  "duration": "المدة",
+  "pleaseSelectOwner": "الرجاء اختيار صاحب المشروع",
+  "pleaseSelectDates": "الرجاء تحديد تاريخي البدء والانتهاء",
+  "noMembersSelected": "لم يتم اختيار أعضاء",
+  "membersSelected": "{count,plural, =0{لم يتم اختيار أعضاء} =1{تم اختيار عضو واحد} =2{تم اختيار عضوين} few{تم اختيار {count} أعضاء} many{تم اختيار {count} عضوًا} other{تم اختيار {count} عضو}}",
+  "@membersSelected": {
+    "description": "رسالة توضح عدد الأعضاء الذين تم اختيارهم للمشروع",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "selectADate": "اختر تاريخًا",
+  "viewProfile": "عرض الملف الشخصي",
+  "appAndPrivacy": "التطبيق والخصوصية",
+  "displayOptions": "خيارات العرض"
 }

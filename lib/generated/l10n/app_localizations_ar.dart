@@ -301,4 +301,67 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get reopen => 'إعادة فتح';
+
+  @override
+  String get projectPlan => 'خطة المشروع';
+
+  @override
+  String get projectOwner => 'صاحب المشروع';
+
+  @override
+  String get projectMembers => 'أعضاء المشروع';
+
+  @override
+  String get startDate => 'تاريخ البدء';
+
+  @override
+  String get endDate => 'تاريخ الانتهاء';
+
+  @override
+  String get selectProjectOwner => 'اختر صاحب المشروع';
+
+  @override
+  String get selectProjectMembers => 'اختر أعضاء المشروع';
+
+  @override
+  String get dueDate => 'تاريخ الاستحقاق';
+
+  @override
+  String get duration => 'المدة';
+
+  @override
+  String get pleaseSelectOwner => 'الرجاء اختيار صاحب المشروع';
+
+  @override
+  String get pleaseSelectDates => 'الرجاء تحديد تاريخي البدء والانتهاء';
+
+  @override
+  String get noMembersSelected => 'لم يتم اختيار أعضاء';
+
+  @override
+  String membersSelected(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'تم اختيار $count عضو',
+      many: 'تم اختيار $count عضوًا',
+      few: 'تم اختيار $count أعضاء',
+      two: 'تم اختيار عضوين',
+      one: 'تم اختيار عضو واحد',
+      zero: 'لم يتم اختيار أعضاء',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get selectADate => 'اختر تاريخًا';
+
+  @override
+  String get viewProfile => 'عرض الملف الشخصي';
+
+  @override
+  String get appAndPrivacy => 'التطبيق والخصوصية';
+
+  @override
+  String get displayOptions => 'خيارات العرض';
 }

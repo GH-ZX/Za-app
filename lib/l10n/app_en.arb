@@ -95,5 +95,30 @@
   "start": "Start",
   "pause": "Pause",
   "complete": "Complete",
-  "reopen": "Reopen"
+  "reopen": "Reopen",
+  "projectPlan": "Project Plan",
+  "projectOwner": "Project Owner",
+  "projectMembers": "Project Members",
+  "startDate": "Start Date",
+  "endDate": "End Date",
+  "selectProjectOwner": "Select a project owner",
+  "selectProjectMembers": "Select project members",
+  "dueDate": "Due Date",
+  "duration": "Duration",
+  "pleaseSelectOwner": "Please select a project owner",
+  "pleaseSelectDates": "Please select start and end dates",
+  "noMembersSelected": "No members selected",
+  "membersSelected": "{count,plural, =0{No members selected} =1{1 member selected} other{{count} members selected}}",
+  "@membersSelected": {
+    "description": "A message that shows how many members are selected for a project",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "selectADate": "Select a date",
+  "viewProfile": "View Profile",
+  "appAndPrivacy": "App & Privacy",
+  "displayOptions": "Display options"
 }

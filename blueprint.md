@@ -1,68 +1,100 @@
-
-# Task Manager Application Blueprint
+# TaskVerse Blueprint
 
 ## Overview
 
-This document outlines the architecture, features, and implementation details of the Task Manager Flutter application. The app is designed to be a comprehensive tool for project and task management, featuring user authentication, role-based access control, a multi-language interface, and a dynamic theme system.
+TaskVerse is a comprehensive task management application built with Flutter and Firebase. It aims to provide a seamless and intuitive experience for managing projects and tasks, with a focus on collaboration and real-time updates. The application supports multiple languages (English and Arabic), dynamic themes, and a role-based access control system.
 
-## Core Features
+---
 
-*   **User Authentication:** Secure login, registration, and password reset functionality using Firebase Authentication.
-*   **Project Management:** Users can create, view, and manage projects.
-*   **Task Management:** Within each project, users can manage tasks in a Kanban-style board with "To Do", "In Progress", and "Done" columns.
-*   **Role-Based Access Control (RBAC):** The first user to register becomes an "admin", with subsequent users assigned the "user" role. (Further development is needed to define specific permissions).
-*   **Internationalization (i18n):** Full support for English and Arabic languages using the `intl` package.
-*   **Dynamic Theming:** Light, dark, and system theme options, managed with the `provider` package.
-*   **Profile Management:** Users can update their display name.
-*   **Task Details & Comments:** Users can view task details and add comments.
+## Current Implemented Features (as of last session)
 
-## Project Structure
+*   **Authentication:**
+    *   Email/Password signup and login.
+    *   Google Sign-In.
+    *   Password reset functionality.
+    *   Secure session management with Firebase Authentication.
 
-```
-lib
-├── l10n/                 # Localization files (ARB)
-├── generated/            # Auto-generated localization files
-├── src/
-│   ├── models/             # Data models (e.g., Project, Task)
-│   ├── providers/          # State management (e.g., ThemeProvider)
-│   ├── screens/            # UI screens (login, home, profile, etc.)
-│   ├── widgets/            # Reusable UI components
-│   └── services/           # Business logic (e.g., AuthService)
-├── main.dart             # App entry point
-└── auth_gate.dart        # Handles auth state changes
-```
+*   **Project Management:**
+    *   Create new projects via a simple dialog with a title and description.
+    *   View a list of all projects.
+    *   Projects are stored in the `projects` collection in Firestore.
 
-## Style & Design
+*   **Task Management:**
+    *   Kanban-style board for tasks within a project (`To Do`, `In Progress`, `Done`).
+    *   Create tasks with a title and description.
+    *   Assign tasks to any registered user.
+    *   View task details, add comments, and update task status.
+    *   Real-time updates for task changes.
 
-*   **UI Framework:** Flutter with Material Design 3.
-*   **Layout:** Clean, responsive, and intuitive layouts with a focus on usability.
-*   **Icons:** Material Design icons are used throughout the app to enhance clarity.
-*   **State Management:** `provider` is used for managing global state like the theme, while `StatefulWidget` and `ValueNotifier` are used for local state.
+*   **User & Profile:**
+    *   The first user to register is automatically assigned an `admin` role.
+    *   Users can view and edit their display name.
+    *   User information is stored in the `users` collection.
 
-## Current Implementation Plan
+*   **UI/UX:**
+    *   **Localization (i18n):** Full support for English and Arabic, with an in-app language switcher.
+    *   **Theming:** Light, Dark, and System theme options.
+    *   **Responsive Design:** UI adapts to different screen sizes.
 
-**Task: Fix Localization Issues in Authentication Screens**
+---
 
-*   **Objective:** Resolve all hardcoded strings and incorrect localization key usage in the `login`, `signup`, and `forgot_password` screens.
-*   **Status:** Completed.
+## Plan for New Feature Implementation
 
-**Steps Taken:**
+**Objective:** Overhaul the project and task creation process to be more detailed and collaborative, as per the user's request.
 
-1.  **Reviewed `forgot_password_screen.dart`:**
-    *   Identified and corrected an incorrect translation key (`sendResetLink` -> `sendResetEmail`).
+### Part 1: New Project Creation Screen
 
-2.  **Reviewed `login_screen.dart`:**
-    *   Identified several missing translation keys (`pleaseEnterEmail`).
-    *   Added the missing keys to `app_en.arb` and `app_ar.arb`.
-    *   Updated the screen to use the correct keys for validation and error messages (`error_user_not_found`, `error_wrong_password`, etc.).
+1.  **Create a New Dedicated Screen:**
+    *   Replace the current "New Project" dialog with a full-screen page: `lib/src/screens/create_project_screen.dart`.
 
-3.  **Reviewed `signup_screen.dart`:**
-    *   Identified numerous missing translation keys (`createAccount`, `name`, `pleaseEnterName`, `emailInUse`, etc.).
-    *   Added all missing keys to both `app_en.arb` and `app_ar.arb`.
-    *   Corrected a data inconsistency by changing the Firestore field for the user's name from `name` to `displayName` to match the profile screen.
-    *   Updated the screen to use the correct localization keys for UI text, validation, and error handling.
+2.  **Update Navigation:**
+    *   The Floating Action Button on the projects view will navigate to this new screen.
 
-4.  **Regenerated Localization Files:**
-    *   Ran `flutter gen-l10n` after each modification to the `.arb` files to ensure the `AppLocalizations` class was correctly updated.
+3.  **Develop UI for `CreateProjectScreen`:**
+    *   The screen will be a `StatefulWidget` containing a `Form`.
+    *   **Input Fields:**
+        *   `TextFormField` for **Project Name** (required).
+        *   `TextFormField` for **Project Description** (optional).
+        *   `TextFormField` for **Project Plan** (optional).
+    *   **Date Selection:**
+        *   `DatePicker` for **Start Date** (required).
+        *   `DatePicker` for **Expected End Date** (required).
+    *   **User Selection:**
+        *   A dropdown menu to select a single **Project Owner** from the list of all registered users.
+        *   A multi-selection mechanism (e.g., a dialog with checkboxes) to choose **Project Members** from the list of all registered users.
 
-**Outcome:** All user-facing text in the authentication flow is now correctly translated and managed through the localization system. Error messages are user-friendly and translated. The user's display name is now correctly saved and displayed after registration.
+4.  **Update Data Model (Firestore Schema for `projects` collection):**
+    *   The project document will be enhanced with the following new fields:
+        *   `code`: A randomly generated, unique ID for the project.
+        *   `ownerId`: The UID of the user selected as the project owner.
+        *   `members`: An array of UIDs for all selected project members.
+        *   `startDate`: A `Timestamp` for the project's start date.
+        *   `endDate`: A `Timestamp` for the project's expected end date.
+        *   `plan`: A string to store the project plan.
+
+5.  **Implement Backend Logic:**
+    *   On "Create" button press, the app will:
+        *   Validate the form inputs.
+        *   Generate a unique random code for the project ID.
+        *   Save all the new fields to a new document in the `projects` collection in Firestore.
+
+### Part 2: Enhanced Task Creation & Display
+
+*(To be implemented after Part 1 is complete)*
+
+1.  **Update Task Data Model (Firestore Schema for `tasks` sub-collection):**
+    *   Add the following new fields:
+        *   `dueDate`: A `Timestamp` for the task's deadline.
+        *   `duration`: A number or string to represent the estimated duration.
+
+2.  **Update Task Creation UI:**
+    *   When creating a new task, the user will only be able to assign it to a member of the **current project**.
+    *   Add a `DatePicker` to set the task's due date.
+    *   Add a field to input the estimated duration.
+
+3.  **Update Task Display UI:**
+    *   The task view (in the list and details screen) will clearly display:
+        *   Who created the task.
+        *   When it was created.
+        *   The due date.
+        *   The estimated duration.

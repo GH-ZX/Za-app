@@ -673,6 +673,108 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Reopen'**
   String get reopen;
+
+  /// No description provided for @projectPlan.
+  ///
+  /// In en, this message translates to:
+  /// **'Project Plan'**
+  String get projectPlan;
+
+  /// No description provided for @projectOwner.
+  ///
+  /// In en, this message translates to:
+  /// **'Project Owner'**
+  String get projectOwner;
+
+  /// No description provided for @projectMembers.
+  ///
+  /// In en, this message translates to:
+  /// **'Project Members'**
+  String get projectMembers;
+
+  /// No description provided for @startDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Start Date'**
+  String get startDate;
+
+  /// No description provided for @endDate.
+  ///
+  /// In en, this message translates to:
+  /// **'End Date'**
+  String get endDate;
+
+  /// No description provided for @selectProjectOwner.
+  ///
+  /// In en, this message translates to:
+  /// **'Select a project owner'**
+  String get selectProjectOwner;
+
+  /// No description provided for @selectProjectMembers.
+  ///
+  /// In en, this message translates to:
+  /// **'Select project members'**
+  String get selectProjectMembers;
+
+  /// No description provided for @dueDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Due Date'**
+  String get dueDate;
+
+  /// No description provided for @duration.
+  ///
+  /// In en, this message translates to:
+  /// **'Duration'**
+  String get duration;
+
+  /// No description provided for @pleaseSelectOwner.
+  ///
+  /// In en, this message translates to:
+  /// **'Please select a project owner'**
+  String get pleaseSelectOwner;
+
+  /// No description provided for @pleaseSelectDates.
+  ///
+  /// In en, this message translates to:
+  /// **'Please select start and end dates'**
+  String get pleaseSelectDates;
+
+  /// No description provided for @noMembersSelected.
+  ///
+  /// In en, this message translates to:
+  /// **'No members selected'**
+  String get noMembersSelected;
+
+  /// A message that shows how many members are selected for a project
+  ///
+  /// In en, this message translates to:
+  /// **'{count,plural, =0{No members selected} =1{1 member selected} other{{count} members selected}}'**
+  String membersSelected(int count);
+
+  /// No description provided for @selectADate.
+  ///
+  /// In en, this message translates to:
+  /// **'Select a date'**
+  String get selectADate;
+
+  /// No description provided for @viewProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'View Profile'**
+  String get viewProfile;
+
+  /// No description provided for @appAndPrivacy.
+  ///
+  /// In en, this message translates to:
+  /// **'App & Privacy'**
+  String get appAndPrivacy;
+
+  /// No description provided for @displayOptions.
+  ///
+  /// In en, this message translates to:
+  /// **'Display options'**
+  String get displayOptions;
 }
 
 class _AppLocalizationsDelegate
