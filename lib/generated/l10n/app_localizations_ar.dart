@@ -84,18 +84,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get taskDescription => 'وصف المهمة';
 
   @override
-  String get start => 'بدء';
-
-  @override
-  String get pause => 'إيقاف مؤقت';
-
-  @override
-  String get complete => 'إكمال';
-
-  @override
-  String get reopen => 'إعادة فتح';
-
-  @override
   String get add => 'إضافة';
 
   @override
@@ -114,72 +102,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get noTasks => 'لا توجد مهام بعد.';
 
   @override
-  String get changeEmail => 'تغيير البريد الإلكتروني';
-
-  @override
-  String get changePassword => 'تغيير كلمة المرور';
-
-  @override
-  String get changePasswordDescription =>
-      'إرسال رابط إعادة تعيين كلمة المرور إلى بريدك الإلكتروني';
-
-  @override
-  String get deleteAccount => 'حذف الحساب';
-
-  @override
-  String get deleteAccountWarning =>
-      'حذف الحساب سيزيل جميع بياناتك ولا يمكن التراجع عنه.';
-
-  @override
-  String get notifications => 'الإشعارات';
-
-  @override
-  String get analytics => 'التحليلات';
-
-  @override
-  String get compactMode => 'وضع مضغوط';
-
-  @override
-  String get exportData => 'تصدير بياناتي';
-
-  @override
-  String get exportDataDescription =>
-      'اطلب نسخة من بياناتك المخزنة (سوف نجهزها ونخبرك عند الانتهاء).';
-
-  @override
-  String get exportRequested =>
-      'تم طلب تصدير البيانات — سنجهزها ونوافيك بالتحديث.';
-
-  @override
-  String get helpAndFeedback => 'المساعدة والتغذية الراجعة';
-
-  @override
-  String get contactSupport => 'اتصل بالدعم: support@example.com';
-
-  @override
-  String get about => 'حول التطبيق';
-
-  @override
-  String get aboutDescription =>
-      'TaskVerse يساعد الفرق والأفراد في إدارة المشاريع والمهام بكفاءة.';
-
-  @override
-  String get versionLabel => 'الإصدار';
-
-  @override
   String get editProfile => 'تعديل الملف الشخصي';
-
-  @override
-  String get viewProfile => 'عرض الملف الشخصي';
-
-  @override
-  String get preferences => 'التفضيلات';
-
-  @override
-  String get appAndPrivacy => 'التطبيق والخصوصية';
-
-  @override
-  String get displayOptions => 'خيارات العرض';
 
   @override
   String get displayName => 'الاسم المعروض';
@@ -330,4 +253,52 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get loginRequired => 'تسجيل الدخول مطلوب';
+
+  @override
+  String get preferences => 'التفضيلات';
+
+  @override
+  String get activity => 'النشاط';
+
+  @override
+  String get noRecentActivity => 'لا يوجد نشاط حديث';
+
+  @override
+  String get taskCompleted => 'اكتملت المهمة';
+
+  @override
+  String get unnamed => 'بدون اسم';
+
+  @override
+  String get errorLoadingProfile => 'خطأ في تحميل الملف الشخصي';
+
+  @override
+  String get details => 'التفاصيل';
+
+  @override
+  String get branch => 'الفرع';
+
+  @override
+  String get birthDate => 'تاريخ الميلاد';
+
+  @override
+  String get statistics => 'الإحصائيات';
+
+  @override
+  String get profileUpdated => 'تم تحديث الملف الشخصي بنجاح';
+
+  @override
+  String get selectDate => 'اختر التاريخ';
+
+  @override
+  String get start => 'بدء';
+
+  @override
+  String get pause => 'إيقاف مؤقت';
+
+  @override
+  String get complete => 'إكمال';
+
+  @override
+  String get reopen => 'إعادة فتح';
 }

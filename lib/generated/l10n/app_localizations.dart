@@ -248,30 +248,6 @@ abstract class AppLocalizations {
   /// **'Task Description'**
   String get taskDescription;
 
-  /// No description provided for @start.
-  ///
-  /// In en, this message translates to:
-  /// **'Start'**
-  String get start;
-
-  /// No description provided for @pause.
-  ///
-  /// In en, this message translates to:
-  /// **'Pause'**
-  String get pause;
-
-  /// No description provided for @complete.
-  ///
-  /// In en, this message translates to:
-  /// **'Complete'**
-  String get complete;
-
-  /// No description provided for @reopen.
-  ///
-  /// In en, this message translates to:
-  /// **'Reopen'**
-  String get reopen;
-
   /// No description provided for @add.
   ///
   /// In en, this message translates to:
@@ -308,131 +284,11 @@ abstract class AppLocalizations {
   /// **'No tasks yet.'**
   String get noTasks;
 
-  /// No description provided for @changeEmail.
-  ///
-  /// In en, this message translates to:
-  /// **'Change email'**
-  String get changeEmail;
-
-  /// No description provided for @changePassword.
-  ///
-  /// In en, this message translates to:
-  /// **'Change password'**
-  String get changePassword;
-
-  /// No description provided for @changePasswordDescription.
-  ///
-  /// In en, this message translates to:
-  /// **'Send a password reset email to your account'**
-  String get changePasswordDescription;
-
-  /// No description provided for @deleteAccount.
-  ///
-  /// In en, this message translates to:
-  /// **'Delete account'**
-  String get deleteAccount;
-
-  /// No description provided for @deleteAccountWarning.
-  ///
-  /// In en, this message translates to:
-  /// **'Deleting your account will remove all your data and cannot be undone.'**
-  String get deleteAccountWarning;
-
-  /// No description provided for @notifications.
-  ///
-  /// In en, this message translates to:
-  /// **'Notifications'**
-  String get notifications;
-
-  /// No description provided for @analytics.
-  ///
-  /// In en, this message translates to:
-  /// **'Analytics'**
-  String get analytics;
-
-  /// No description provided for @compactMode.
-  ///
-  /// In en, this message translates to:
-  /// **'Compact mode'**
-  String get compactMode;
-
-  /// No description provided for @exportData.
-  ///
-  /// In en, this message translates to:
-  /// **'Export my data'**
-  String get exportData;
-
-  /// No description provided for @exportDataDescription.
-  ///
-  /// In en, this message translates to:
-  /// **'Request a copy of your stored data (we will prepare it and notify you).'**
-  String get exportDataDescription;
-
-  /// No description provided for @exportRequested.
-  ///
-  /// In en, this message translates to:
-  /// **'Data export requested — we will prepare it and notify you.'**
-  String get exportRequested;
-
-  /// No description provided for @helpAndFeedback.
-  ///
-  /// In en, this message translates to:
-  /// **'Help & Feedback'**
-  String get helpAndFeedback;
-
-  /// No description provided for @contactSupport.
-  ///
-  /// In en, this message translates to:
-  /// **'Contact support: support@example.com'**
-  String get contactSupport;
-
-  /// No description provided for @about.
-  ///
-  /// In en, this message translates to:
-  /// **'About'**
-  String get about;
-
-  /// No description provided for @aboutDescription.
-  ///
-  /// In en, this message translates to:
-  /// **'TaskVerse helps teams and individuals manage projects and tasks efficiently.'**
-  String get aboutDescription;
-
-  /// No description provided for @versionLabel.
-  ///
-  /// In en, this message translates to:
-  /// **'Version'**
-  String get versionLabel;
-
   /// No description provided for @editProfile.
   ///
   /// In en, this message translates to:
   /// **'Edit Profile'**
   String get editProfile;
-
-  /// No description provided for @viewProfile.
-  ///
-  /// In en, this message translates to:
-  /// **'View profile'**
-  String get viewProfile;
-
-  /// No description provided for @preferences.
-  ///
-  /// In en, this message translates to:
-  /// **'Preferences'**
-  String get preferences;
-
-  /// No description provided for @appAndPrivacy.
-  ///
-  /// In en, this message translates to:
-  /// **'App & Privacy'**
-  String get appAndPrivacy;
-
-  /// No description provided for @displayOptions.
-  ///
-  /// In en, this message translates to:
-  /// **'Display options'**
-  String get displayOptions;
 
   /// No description provided for @displayName.
   ///
@@ -721,6 +577,102 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Login required'**
   String get loginRequired;
+
+  /// No description provided for @preferences.
+  ///
+  /// In en, this message translates to:
+  /// **'Preferences'**
+  String get preferences;
+
+  /// No description provided for @activity.
+  ///
+  /// In en, this message translates to:
+  /// **'Activity'**
+  String get activity;
+
+  /// No description provided for @noRecentActivity.
+  ///
+  /// In en, this message translates to:
+  /// **'No recent activity'**
+  String get noRecentActivity;
+
+  /// No description provided for @taskCompleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Task completed'**
+  String get taskCompleted;
+
+  /// No description provided for @unnamed.
+  ///
+  /// In en, this message translates to:
+  /// **'Unnamed'**
+  String get unnamed;
+
+  /// No description provided for @errorLoadingProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'Error loading profile'**
+  String get errorLoadingProfile;
+
+  /// No description provided for @details.
+  ///
+  /// In en, this message translates to:
+  /// **'Details'**
+  String get details;
+
+  /// No description provided for @branch.
+  ///
+  /// In en, this message translates to:
+  /// **'Branch'**
+  String get branch;
+
+  /// No description provided for @birthDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Birth Date'**
+  String get birthDate;
+
+  /// No description provided for @statistics.
+  ///
+  /// In en, this message translates to:
+  /// **'Statistics'**
+  String get statistics;
+
+  /// No description provided for @profileUpdated.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile updated successfully'**
+  String get profileUpdated;
+
+  /// No description provided for @selectDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Date'**
+  String get selectDate;
+
+  /// No description provided for @start.
+  ///
+  /// In en, this message translates to:
+  /// **'Start'**
+  String get start;
+
+  /// No description provided for @pause.
+  ///
+  /// In en, this message translates to:
+  /// **'Pause'**
+  String get pause;
+
+  /// No description provided for @complete.
+  ///
+  /// In en, this message translates to:
+  /// **'Complete'**
+  String get complete;
+
+  /// No description provided for @reopen.
+  ///
+  /// In en, this message translates to:
+  /// **'Reopen'**
+  String get reopen;
 }
 
 class _AppLocalizationsDelegate

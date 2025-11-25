@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:TaskVerse/generated/l10n/app_localizations.dart';
-import 'package:TaskVerse/src/screens/profile_screen.dart';
+import 'package:TaskVerse/src/screens/settings_screen.dart';
 import 'package:TaskVerse/src/screens/projects_view.dart';
 import 'package:TaskVerse/src/screens/tasks_view.dart';
 
@@ -99,7 +99,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ? l10n.projects
             : _currentIndex == 1
                 ? l10n.tasks
-                : l10n.profile),
+                : l10n.settings),
         elevation: 0,
       ),
       body: _buildBody(user, l10n),
@@ -109,7 +109,7 @@ class _HomeScreenState extends State<HomeScreen> {
         items: [
           BottomNavigationBarItem(icon: const Icon(Icons.folder_open), label: l10n.projects),
           BottomNavigationBarItem(icon: const Icon(Icons.task_alt), label: l10n.tasks),
-          BottomNavigationBarItem(icon: const Icon(Icons.person), label: l10n.profile),
+          BottomNavigationBarItem(icon: const Icon(Icons.settings_outlined), label: l10n.settings),
         ],
       ),
       floatingActionButton: _currentIndex == 0
@@ -127,7 +127,7 @@ class _HomeScreenState extends State<HomeScreen> {
       case 1:
         return const TasksView();
       case 2:
-        return const ProfileScreen();
+        return const SettingsScreen();
       default:
         return const ProjectsView();
     }

@@ -84,18 +84,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get taskDescription => 'Task Description';
 
   @override
-  String get start => 'Start';
-
-  @override
-  String get pause => 'Pause';
-
-  @override
-  String get complete => 'Complete';
-
-  @override
-  String get reopen => 'Reopen';
-
-  @override
   String get add => 'Add';
 
   @override
@@ -114,72 +102,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get noTasks => 'No tasks yet.';
 
   @override
-  String get changeEmail => 'Change email';
-
-  @override
-  String get changePassword => 'Change password';
-
-  @override
-  String get changePasswordDescription =>
-      'Send a password reset email to your account';
-
-  @override
-  String get deleteAccount => 'Delete account';
-
-  @override
-  String get deleteAccountWarning =>
-      'Deleting your account will remove all your data and cannot be undone.';
-
-  @override
-  String get notifications => 'Notifications';
-
-  @override
-  String get analytics => 'Analytics';
-
-  @override
-  String get compactMode => 'Compact mode';
-
-  @override
-  String get exportData => 'Export my data';
-
-  @override
-  String get exportDataDescription =>
-      'Request a copy of your stored data (we will prepare it and notify you).';
-
-  @override
-  String get exportRequested =>
-      'Data export requested — we will prepare it and notify you.';
-
-  @override
-  String get helpAndFeedback => 'Help & Feedback';
-
-  @override
-  String get contactSupport => 'Contact support: support@example.com';
-
-  @override
-  String get about => 'About';
-
-  @override
-  String get aboutDescription =>
-      'TaskVerse helps teams and individuals manage projects and tasks efficiently.';
-
-  @override
-  String get versionLabel => 'Version';
-
-  @override
   String get editProfile => 'Edit Profile';
-
-  @override
-  String get viewProfile => 'View profile';
-
-  @override
-  String get preferences => 'Preferences';
-
-  @override
-  String get appAndPrivacy => 'App & Privacy';
-
-  @override
-  String get displayOptions => 'Display options';
 
   @override
   String get displayName => 'Display Name';
@@ -333,4 +256,52 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get loginRequired => 'Login required';
+
+  @override
+  String get preferences => 'Preferences';
+
+  @override
+  String get activity => 'Activity';
+
+  @override
+  String get noRecentActivity => 'No recent activity';
+
+  @override
+  String get taskCompleted => 'Task completed';
+
+  @override
+  String get unnamed => 'Unnamed';
+
+  @override
+  String get errorLoadingProfile => 'Error loading profile';
+
+  @override
+  String get details => 'Details';
+
+  @override
+  String get branch => 'Branch';
+
+  @override
+  String get birthDate => 'Birth Date';
+
+  @override
+  String get statistics => 'Statistics';
+
+  @override
+  String get profileUpdated => 'Profile updated successfully';
+
+  @override
+  String get selectDate => 'Select Date';
+
+  @override
+  String get start => 'Start';
+
+  @override
+  String get pause => 'Pause';
+
+  @override
+  String get complete => 'Complete';
+
+  @override
+  String get reopen => 'Reopen';
 }
